@@ -195,7 +195,7 @@ Menubar.Edit = function ( editor ) {
 				" material(s) were changed.\n" + errors.join( "\n" ) );
 
 	} );
-	options.add( option );
+//	options.add( option );
 
 
 	return container;
