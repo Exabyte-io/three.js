@@ -29,6 +29,8 @@ RemoveObjectCommand.prototype = {
 
 	execute: function () {
 
+		if (["PerspectiveCamera", "AmbientLight", "DirectionalLight"].includes(this.object.type)) return;
+
 		var scope = this.editor;
 		this.object.traverse( function ( child ) {
 
