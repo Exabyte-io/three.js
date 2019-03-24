@@ -42,11 +42,11 @@ Menubar.File = function ( editor ) {
 		}
 
 	} );
-	options.add( option );
+//	options.add( option );
 
 	//
 
-	options.add( new UI.HorizontalRule() );
+//	options.add( new UI.HorizontalRule() );
 
 	// Import
 
@@ -72,11 +72,11 @@ Menubar.File = function ( editor ) {
 		fileInput.click();
 
 	} );
-	options.add( option );
+//	options.add( option );
 
 	//
 
-	options.add( new UI.HorizontalRule() );
+//	options.add( new UI.HorizontalRule() );
 
 	// Export Geometry
 

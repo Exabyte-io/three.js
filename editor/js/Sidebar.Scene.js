@@ -202,9 +202,12 @@ Sidebar.Scene = function ( editor ) {
 
 				var object = objects[ i ];
 
-				var option = buildOption( object, true );
-				option.style.paddingLeft = ( pad * 10 ) + 'px';
-				options.push( option );
+				// avoid modifying camera and light objects
+				if (!["PerspectiveCamera", "AmbientLight", "DirectionalLight"].includes(object.type)) {
+					var option = buildOption(object, true);
+					option.style.paddingLeft = (pad * 10) + 'px';
+					options.push(option);
+				}
 
 				addObjects( object.children, pad + 1 );
 

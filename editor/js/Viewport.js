@@ -24,21 +24,33 @@ var Viewport = function ( editor ) {
 
 	// helpers
 
-	var grid = new THREE.GridHelper( 30, 30, 0x444444, 0x888888 );
-	sceneHelpers.add( grid );
+    const length = 100;
+    const lineMaterial = new THREE.LineDashedMaterial(
+        {
+            dashSize: 1,
+            gapSize: 2,
+            scale: 2,
+            linewidth: 2,
+            color: 0xffc107
+        });
+    const geometry = new THREE.Geometry();
+    const [origin, x, y, z] = [
+        new THREE.Vector3(0, 0, 0),
+        new THREE.Vector3(length, 0, 0),
+        new THREE.Vector3(0, length, 0),
+        new THREE.Vector3(0, 0, length)
+    ];
+    geometry.vertices.push(origin, x, origin, y, origin, z);
+    const line = new THREE.LineSegments(geometry, lineMaterial);
+    line.computeLineDistances();
+    sceneHelpers.add(line);
 
-	var array = grid.geometry.attributes.color.array;
-
-	for ( var i = 0; i < array.length; i += 60 ) {
-
-		for ( var j = 0; j < 12; j ++ ) {
-
-			array[ i + j ] = 0.26;
-
-		}
-
-	}
-
+    var grid = new THREE.GridHelper(100, 100, 0xffc107, 0x808080);
+    grid.geometry.rotateX(Math.PI / 2);
+    grid.position.x = 0;
+    grid.position.y = 0;
+    sceneHelpers.add(grid);
+    
 	//
 
 	var box = new THREE.Box3();
