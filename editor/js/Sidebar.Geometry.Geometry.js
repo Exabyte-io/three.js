@@ -37,7 +37,7 @@ Sidebar.Geometry.Geometry = function ( editor ) {
 
 		var geometry = object.geometry;
 
-		if ( geometry instanceof THREE.Geometry ) {
+		if ( geometry instanceof THREE.Geometry && object.type !== "LineSegments") {
 
 			container.setDisplay( 'block' );
 
