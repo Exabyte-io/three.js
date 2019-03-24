@@ -202,6 +202,7 @@ Sidebar.Scene = function ( editor ) {
 
 				var object = objects[ i ];
 
+				// avoid modifying camera and light objects
 				if (!["PerspectiveCamera", "AmbientLight", "DirectionalLight"].includes(object.type)) {
 					var option = buildOption(object, true);
 					option.style.paddingLeft = (pad * 10) + 'px';

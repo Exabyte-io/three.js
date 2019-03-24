@@ -1,13 +1,18 @@
+/**
+ * LineSegments Geometry function to visualize and update cell configuration.
+ */
 Sidebar.Geometry.LineSegments = function (editor, object) {
 
     var signals = editor.signals;
     var container = new UI.Row();
 
+    // set lattice a,b, and c vectors based on the LineSegments vertices
     const vertices = object.geometry.vertices;
     const a = vertices[1].sub(vertices[0]).toArray();
     const b = vertices[3].sub(vertices[0]).toArray();
     const c = vertices[17].sub(vertices[0]).toArray();
 
+    // lattice a vector
     var aRow = new UI.Row();
     var aX = new UI.Number(a[0]).setWidth('50px');
     var aY = new UI.Number(a[1]).setWidth('50px');
@@ -16,6 +21,7 @@ Sidebar.Geometry.LineSegments = function (editor, object) {
     aRow.add(aX, aY, aZ);
     container.add(aRow);
 
+    // lattice b vector
     var bRow = new UI.Row();
     var bX = new UI.Number(b[0]).setWidth('50px');
     var bY = new UI.Number(b[1]).setWidth('50px');
@@ -24,6 +30,7 @@ Sidebar.Geometry.LineSegments = function (editor, object) {
     bRow.add(bX, bY, bZ);
     container.add(bRow);
 
+    // lattice c vector
     var cRow = new UI.Row();
     var cX = new UI.Number(c[0]).setWidth('50px');
     var cY = new UI.Number(c[1]).setWidth('50px');

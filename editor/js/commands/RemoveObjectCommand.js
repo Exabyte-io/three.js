@@ -29,6 +29,7 @@ RemoveObjectCommand.prototype = {
 
 	execute: function () {
 
+		// avoid modifying camera and light objects
 		if (["PerspectiveCamera", "AmbientLight", "DirectionalLight"].includes(this.object.type)) return;
 
 		var scope = this.editor;
