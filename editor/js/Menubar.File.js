@@ -336,6 +336,14 @@ Menubar.File = function ( editor ) {
 	} );
 	options.add( option );
 
+    var exit = new UI.Row();
+    exit.setClass('option');
+    exit.setTextContent('Exit');
+    exit.onClick(function () {
+        editor.onHide();
+    });
+    options.add(exit);
+
 	/*
 	// Publish (Dropbox)
 
