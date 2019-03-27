@@ -40,7 +40,7 @@ Sidebar.History = function ( editor ) {
 		}
 
 	} );
-	container.add( persistent );
+//	container.add( persistent );
 
 	container.add( new UI.Break(), new UI.Break() );
 

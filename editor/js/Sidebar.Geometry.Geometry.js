@@ -16,7 +16,7 @@ Sidebar.Geometry.Geometry = function ( editor ) {
 	verticesRow.add( new UI.Text( 'Vertices' ).setWidth( '90px' ) );
 	verticesRow.add( vertices );
 
-	container.add( verticesRow );
+//	container.add( verticesRow );
 
 	// faces
 
@@ -26,7 +26,7 @@ Sidebar.Geometry.Geometry = function ( editor ) {
 	facesRow.add( new UI.Text( 'Faces' ).setWidth( '90px' ) );
 	facesRow.add( faces );
 
-	container.add( facesRow );
+//	container.add( facesRow );
 
 	//
 

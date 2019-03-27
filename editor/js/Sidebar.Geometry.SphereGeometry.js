@@ -19,7 +19,7 @@ Sidebar.Geometry.SphereGeometry = function ( editor, object ) {
 	radiusRow.add( new UI.Text( 'Radius' ).setWidth( '90px' ) );
 	radiusRow.add( radius );
 
-	container.add( radiusRow );
+//	container.add( radiusRow );
 
 	// widthSegments
 
@@ -29,7 +29,7 @@ Sidebar.Geometry.SphereGeometry = function ( editor, object ) {
 	widthSegmentsRow.add( new UI.Text( 'Width segments' ).setWidth( '90px' ) );
 	widthSegmentsRow.add( widthSegments );
 
-	container.add( widthSegmentsRow );
+//	container.add( widthSegmentsRow );
 
 	// heightSegments
 
@@ -39,7 +39,7 @@ Sidebar.Geometry.SphereGeometry = function ( editor, object ) {
 	heightSegmentsRow.add( new UI.Text( 'Height segments' ).setWidth( '90px' ) );
 	heightSegmentsRow.add( heightSegments );
 
-	container.add( heightSegmentsRow );
+//	container.add( heightSegmentsRow );
 
 	// phiStart
 
@@ -49,7 +49,7 @@ Sidebar.Geometry.SphereGeometry = function ( editor, object ) {
 	phiStartRow.add( new UI.Text( 'Phi start' ).setWidth( '90px' ) );
 	phiStartRow.add( phiStart );
 
-	container.add( phiStartRow );
+//	container.add( phiStartRow );
 
 	// phiLength
 
@@ -59,7 +59,7 @@ Sidebar.Geometry.SphereGeometry = function ( editor, object ) {
 	phiLengthRow.add( new UI.Text( 'Phi length' ).setWidth( '90px' ) );
 	phiLengthRow.add( phiLength );
 
-	container.add( phiLengthRow );
+//	container.add( phiLengthRow );
 
 	// thetaStart
 
@@ -69,7 +69,7 @@ Sidebar.Geometry.SphereGeometry = function ( editor, object ) {
 	thetaStartRow.add( new UI.Text( 'Theta start' ).setWidth( '90px' ) );
 	thetaStartRow.add( thetaStart );
 
-	container.add( thetaStartRow );
+//	container.add( thetaStartRow );
 
 	// thetaLength
 
@@ -79,7 +79,7 @@ Sidebar.Geometry.SphereGeometry = function ( editor, object ) {
 	thetaLengthRow.add( new UI.Text( 'Theta length' ).setWidth( '90px' ) );
 	thetaLengthRow.add( thetaLength );
 
-	container.add( thetaLengthRow );
+//	container.add( thetaLengthRow );
 
 
 	//

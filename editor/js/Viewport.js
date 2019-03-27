@@ -10,7 +10,7 @@ var Viewport = function ( editor ) {
 	container.setId( 'viewport' );
 	container.setPosition( 'absolute' );
 
-	container.add( new Viewport.Info( editor ) );
+//	container.add( new Viewport.Info( editor ) );
 
 	//
 
@@ -41,9 +41,9 @@ var Viewport = function ( editor ) {
         new THREE.Vector3(0, 0, length)
     ];
     geometry.vertices.push(origin, x, origin, y, origin, z);
-    const line = new THREE.LineSegments(geometry, lineMaterial);
-    line.computeLineDistances();
-    sceneHelpers.add(line);
+    const gridLine = new THREE.LineSegments(geometry, lineMaterial);
+    gridLine.computeLineDistances();
+    sceneHelpers.add(gridLine);
 
     var grid = new THREE.GridHelper(100, 100, 0xffc107, 0x808080);
     grid.geometry.rotateX(Math.PI / 2);
@@ -523,6 +523,7 @@ var Viewport = function ( editor ) {
 	signals.showGridChanged.add( function ( showGrid ) {
 
 		grid.visible = showGrid;
+		gridLine.visible = showGrid;
 		render();
 
 	} );

@@ -15,7 +15,7 @@ var Sidebar = function ( editor ) {
 
 	var tabs = new UI.Div();
 	tabs.setId( 'tabs' );
-	tabs.add( sceneTab, projectTab, settingsTab );
+	tabs.add( sceneTab, settingsTab );
 	container.add( tabs );
 
 	function onClick( event ) {
@@ -30,7 +30,7 @@ var Sidebar = function ( editor ) {
 		new Sidebar.Scene( editor ),
 		new Sidebar.Properties( editor ),
 		new Sidebar.Animation( editor ),
-		new Sidebar.Script( editor )
+//		new Sidebar.Script( editor )
 	);
 	container.add( scene );
 

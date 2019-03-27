@@ -247,7 +247,7 @@ Sidebar.Object = function ( editor ) {
 	var objectShadowRadius = new UI.Number( 1 ).onChange( update );
 	objectShadowRow.add( objectShadowRadius );
 
-	container.add( objectShadowRow );
+//	container.add( objectShadowRow );
 
 	// visible
 
