@@ -8,13 +8,14 @@
  * @constructor
  */
 
-var AddObjectCommand = function ( object ) {
+var AddObjectCommand = function ( object, parent ) {
 
 	Command.call( this );
 
 	this.type = 'AddObjectCommand';
 
 	this.object = object;
+	this.parent = ( parent !== undefined ) ? parent : undefined;
 	if ( object !== undefined ) {
 
 		this.name = 'Add Object: ' + object.name;
@@ -27,7 +28,7 @@ AddObjectCommand.prototype = {
 
 	execute: function () {
 
-		this.editor.addObject( this.object );
+		this.editor.addObject( this.object, this.parent );
 		this.editor.select( this.object );
 
 	},
@@ -43,6 +44,11 @@ AddObjectCommand.prototype = {
 
 		var output = Command.prototype.toJSON.call( this );
 		output.object = this.object.toJSON();
+		if ( this.parent !== undefined ) {
+
+ 			output.parent = this.parent.toJSON();
+
+ 		}
 
 		return output;
 
@@ -53,13 +59,20 @@ AddObjectCommand.prototype = {
 		Command.prototype.fromJSON.call( this, json );
 
 		this.object = this.editor.objectByUuid( json.object.object.uuid );
+		this.parent = this.editor.objectByUuid( json.parent.object.uuid );
 
+		var loader = new THREE.ObjectLoader();
 		if ( this.object === undefined ) {
 
-			var loader = new THREE.ObjectLoader();
 			this.object = loader.parse( json.object );
 
 		}
+
+		if ( this.parent === undefined && json.parent !== undefined ) {
+
+ 			this.parent = loader.parse( json.parent );
+
+ 		}
 
 	}
 
