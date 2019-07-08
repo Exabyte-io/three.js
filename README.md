@@ -1,3 +1,5 @@
+> IMPORTANT NOTE: this is a slightly modified version of the original package. The modifications were needed to quickly adopt it for using inside the Exabyte.io platform, as there presently is no way to use ThreeJS Editor as a standalone HTML/React package. We discourage any further modifications done to this package directly, and suggest that isolating the ThreeJS Editor as a standalone application should be done first instead.
+
 three.js
 ========
 
