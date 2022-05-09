@@ -1,0 +1,29 @@
+{
+    "name": "@exabyte-io/three-editor",
+    "version": "0.0.0",
+    "description": "3D Materials Editor From Three.js",
+    "scripts": {
+        "test": "echo \"No tests specified\"",
+        "build": "bash build.sh",
+        "start": "SKIP_PREFLIGHT_CHECK=true react-app-rewired start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Exabyte-io/three.js.git"
+    },
+    "main": "main.js",
+    "author": "Exabyte Inc.",
+    "bugs": {
+        "url": "https://github.com/Exabyte-io/three.js/issues"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/Exabyte-io/three.js",
+    "dependencies": {
+        "eslint-config-mdcs": "^5.0.0",
+        "react": "16.14.0",
+        "react-app-rewired": "^2.2.1",
+        "react-dom": "16.14.0",
+        "react-scripts": "^5.0.1",
+        "three": "0.140.0"
+    }
+}
