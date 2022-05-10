@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-import { TransformControls } from 'examples/jsm/controls/TransformControls.js';
+import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 
 import { UIPanel } from './libs/ui.js';
 
@@ -15,7 +15,7 @@ import { SetPositionCommand } from './commands/SetPositionCommand.js';
 import { SetRotationCommand } from './commands/SetRotationCommand.js';
 import { SetScaleCommand } from './commands/SetScaleCommand.js';
 
-import { RoomEnvironment } from 'examples/jsm/environments/RoomEnvironment.js';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 
 function Viewport( editor ) {
 
@@ -53,10 +53,33 @@ function Viewport( editor ) {
 	grid2.material.vertexColors = false;
 	grid.add( grid2 );
 
-	const viewHelper = new ViewHelper( camera, container );
-	const vr = new VR( editor );
+	grid.rotateX(Math.PI / 2);
 
-	//
+	const length = 30;
+	const lineMaterial = new THREE.LineDashedMaterial({
+		dashSize: 1,
+		gapSize: 2,
+		scale: 2,
+		linewidth: 2,
+		color: 0xffc107,
+	});
+
+	const points = [
+		new THREE.Vector3(-length / 2, 0, 0),
+		new THREE.Vector3(length / 2, 0, 0),
+		new THREE.Vector3(0, -length / 2, 0),
+		new THREE.Vector3(0, length / 2, 0),
+		new THREE.Vector3(0, 0, 0),
+		new THREE.Vector3(0, 0, length / 2),
+	];
+	const geometry = new THREE.BufferGeometry().setFromPoints(points);
+	const line = new THREE.LineSegments(geometry, lineMaterial);
+	line.computeLineDistances();
+	sceneHelpers.add(line);
+
+	const viewHelper = new ViewHelper(camera, container);
+	window.VIEW_HELPER = viewHelper;
+	const vr = new VR(editor);
 
 	const box = new THREE.Box3();
 
