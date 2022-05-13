@@ -3,7 +3,7 @@
     [
       "@babel/preset-env",
       {
-        "modules": false,
+        "modules": true,
         "targets": ">1%",
         "loose": true,
         "bugfixes": true
