@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from '@exabyte-io/three';
 
 import { UIPanel, UIRow, UIInput, UIButton, UIColor, UICheckbox, UIInteger, UITextArea, UIText, UINumber } from './libs/ui.js';
 import { UIBoolean } from './libs/ui.three.js';

@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from '@exabyte-io/three';
 
 import { zipSync, strToU8 } from '../../examples/jsm/libs/fflate.module.js';
 

@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from '@exabyte-io/three';
 
 import { HTMLMesh } from '../../examples/jsm/interactive/HTMLMesh.js';
 import { InteractiveGroup } from '../../examples/jsm/interactive/InteractiveGroup.js';

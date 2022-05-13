@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from '@exabyte-io/three';
 
 import { UIPanel, UIRow, UIHorizontalRule } from './libs/ui.js';
 

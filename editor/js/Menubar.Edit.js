@@ -1,4 +1,4 @@
-import { Box3, Vector3 } from 'three';
+import { Box3, Vector3 } from '@exabyte-io/three';
 
 import { UIPanel, UIRow, UIHorizontalRule } from './libs/ui.js';
 

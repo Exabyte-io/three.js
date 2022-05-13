@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from '@exabyte-io/three';
 
 import { TransformControls } from '../../examples/jsm/controls/TransformControls.js';
 
