@@ -4,7 +4,7 @@ import {
 	LineBasicMaterial,
 	Line,
 	MathUtils
-} from 'three';
+} from '@exabyte-io/three';
 
 class PositionalAudioHelper extends Line {
 

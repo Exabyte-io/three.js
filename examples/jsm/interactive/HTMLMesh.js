@@ -5,7 +5,7 @@ import {
 	MeshBasicMaterial,
 	PlaneGeometry,
 	sRGBEncoding
-} from 'three';
+} from '@exabyte-io/three';
 
 class HTMLMesh extends Mesh {
 

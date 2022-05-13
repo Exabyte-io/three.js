@@ -15,7 +15,7 @@ import {
 	UniformsUtils,
 	Vector3,
 	Ray
-} from 'three';
+} from '@exabyte-io/three';
 
 // Special surface finish tag types.
 // Note: "MATERIAL" tag (e.g. GLITTER, SPECKLE) is not implemented

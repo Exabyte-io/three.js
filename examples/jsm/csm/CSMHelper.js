@@ -10,7 +10,7 @@ import {
 	MeshBasicMaterial,
 	BufferAttribute,
 	DoubleSide
-} from 'three';
+} from '@exabyte-io/three';
 
 class CSMHelper extends Group {
 

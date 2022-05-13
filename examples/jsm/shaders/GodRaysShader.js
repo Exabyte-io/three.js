@@ -1,7 +1,7 @@
 import {
 	Color,
 	Vector3
-} from 'three';
+} from '@exabyte-io/three';
 
 /**
  * God-rays (crepuscular rays)

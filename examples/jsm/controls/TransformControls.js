@@ -18,7 +18,7 @@ import {
 	SphereGeometry,
 	TorusGeometry,
 	Vector3
-} from 'three';
+} from '@exabyte-io/three';
 
 const _raycaster = new Raycaster();
 

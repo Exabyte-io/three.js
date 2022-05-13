@@ -3,7 +3,7 @@ import {
 	BufferGeometry,
 	Float32BufferAttribute,
 	LineBasicMaterial
-} from 'three';
+} from '@exabyte-io/three';
 
 class OctreeHelper extends LineSegments {
 

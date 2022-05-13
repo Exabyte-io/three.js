@@ -1,4 +1,4 @@
-import { MaterialLoader } from 'three';
+import { MaterialLoader } from '@exabyte-io/three';
 
 class NodeMaterialLoader extends MaterialLoader {
 

@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from '@exabyte-io/three';
 import { potpack } from '../libs/potpack.module.js';
 
 /**

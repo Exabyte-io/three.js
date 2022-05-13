@@ -1,6 +1,6 @@
 import {
 	MathUtils
-} from 'three';
+} from '@exabyte-io/three';
 
 const _hsl = {};
 

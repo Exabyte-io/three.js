@@ -1,5 +1,5 @@
 import * as Nodes from '../Nodes.js';
-import { Loader } from 'three';
+import { Loader } from '@exabyte-io/three';
 
 class NodeLoader extends Loader {
 

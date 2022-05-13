@@ -1,6 +1,6 @@
 import {
 	WireframeGeometry
-} from 'three';
+} from '@exabyte-io/three';
 import { LineSegmentsGeometry } from '../lines/LineSegmentsGeometry.js';
 
 class WireframeGeometry2 extends LineSegmentsGeometry {

@@ -1,6 +1,6 @@
 import { LabelElement } from '../../libs/flow.module.js';
 import { Object3DEditor } from './Object3DEditor.js';
-import { Mesh } from 'three';
+import { Mesh } from '@exabyte-io/three';
 
 export class MeshEditor extends Object3DEditor {
 

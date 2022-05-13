@@ -1,6 +1,6 @@
 import {
 	Vector2
-} from 'three';
+} from '@exabyte-io/three';
 
 /**
  * Depth-of-field shader with bokeh

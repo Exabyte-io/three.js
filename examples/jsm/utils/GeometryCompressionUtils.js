@@ -10,7 +10,7 @@ import {
 	Matrix3,
 	Matrix4,
 	Vector3
-} from 'three';
+} from '@exabyte-io/three';
 import { PackedPhongMaterial } from './PackedPhongMaterial.js';
 
 

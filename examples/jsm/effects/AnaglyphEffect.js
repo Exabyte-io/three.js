@@ -10,7 +10,7 @@ import {
 	ShaderMaterial,
 	StereoCamera,
 	WebGLRenderTarget
-} from 'three';
+} from '@exabyte-io/three';
 
 class AnaglyphEffect {
 

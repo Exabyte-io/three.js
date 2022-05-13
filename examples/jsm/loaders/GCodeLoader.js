@@ -7,7 +7,7 @@ import {
 	LineBasicMaterial,
 	LineSegments,
 	Loader
-} from 'three';
+} from '@exabyte-io/three';
 
 /**
  * GCodeLoader is used to load gcode files usually used for 3D printing or CNC applications.

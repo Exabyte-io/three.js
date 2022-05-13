@@ -1,7 +1,7 @@
 import {
 	Color,
 	MathUtils
-} from 'three';
+} from '@exabyte-io/three';
 
 class Lut {
 

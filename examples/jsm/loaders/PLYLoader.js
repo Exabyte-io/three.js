@@ -5,7 +5,7 @@ import {
 	Loader,
 	LoaderUtils,
 	Color
-} from 'three';
+} from '@exabyte-io/three';
 
 /**
  * Description: A THREE loader for PLY ASCII files (known as the Polygon

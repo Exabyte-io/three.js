@@ -14,7 +14,7 @@ import {
 	Matrix4,
 	MathUtils,
 	EventDispatcher
-} from 'three';
+} from '@exabyte-io/three';
 
 //trackball state
 const STATE = {

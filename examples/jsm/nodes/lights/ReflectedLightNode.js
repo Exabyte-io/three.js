@@ -2,7 +2,7 @@ import TempNode from '../core/Node.js';
 import VarNode from '../core/VarNode.js';
 import ConstNode from '../core/UniformNode.js';
 import OperatorNode from '../math/OperatorNode.js';
-import { Vector3 } from 'three';
+import { Vector3 } from '@exabyte-io/three';
 
 class ReflectedLightNode extends TempNode {
 

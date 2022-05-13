@@ -1,7 +1,7 @@
 import TempNode from '../core/Node.js';
 import { ShaderNode, mul, float } from '../shadernode/ShaderNodeBaseElements.js';
 
-import { LinearToneMapping } from 'three';
+import { LinearToneMapping } from '@exabyte-io/three';
 
 // exposure only
 export const LinearToneMappingNode = new ShaderNode( ( { color, exposure } ) => {

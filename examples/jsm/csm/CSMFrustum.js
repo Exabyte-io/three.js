@@ -1,4 +1,4 @@
-import { Vector3, Matrix4 } from 'three';
+import { Vector3, Matrix4 } from '@exabyte-io/three';
 
 const inverseProjectionMatrix = new Matrix4();
 

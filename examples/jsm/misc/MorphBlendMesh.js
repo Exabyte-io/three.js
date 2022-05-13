@@ -1,7 +1,7 @@
 import {
 	MathUtils,
 	Mesh
-} from 'three';
+} from '@exabyte-io/three';
 
 class MorphBlendMesh extends Mesh {
 

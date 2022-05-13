@@ -1,7 +1,7 @@
 import {
 	StereoCamera,
 	Vector2
-} from 'three';
+} from '@exabyte-io/three';
 
 class StereoEffect {
 

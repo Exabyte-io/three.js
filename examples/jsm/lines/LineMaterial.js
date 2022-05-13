@@ -17,7 +17,7 @@ import {
 	UniformsLib,
 	UniformsUtils,
 	Vector2
-} from 'three';
+} from '@exabyte-io/three';
 
 
 UniformsLib.line = {

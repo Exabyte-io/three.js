@@ -2,7 +2,7 @@ import {
 	MathUtils,
 	Spherical,
 	Vector3
-} from 'three';
+} from '@exabyte-io/three';
 
 const _lookDirection = new Vector3();
 const _spherical = new Spherical();

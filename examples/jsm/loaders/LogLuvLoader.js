@@ -4,7 +4,7 @@ import {
 	FloatType,
 	HalfFloatType,
 	RGBAFormat
-} from 'three';
+} from '@exabyte-io/three';
 
 class LogLuvLoader extends DataTextureLoader {
 

@@ -9,7 +9,7 @@ import {
 	ShaderChunk,
 	ShaderLib,
 	UniformsUtils,
-} from 'three';
+} from '@exabyte-io/three';
 
 class PackedPhongMaterial extends MeshPhongMaterial {
 

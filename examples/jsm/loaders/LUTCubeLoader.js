@@ -9,7 +9,7 @@ import {
 	UnsignedByteType,
 	ClampToEdgeWrapping,
 	LinearFilter,
-} from 'three';
+} from '@exabyte-io/three';
 
 export class LUTCubeLoader extends Loader {
 

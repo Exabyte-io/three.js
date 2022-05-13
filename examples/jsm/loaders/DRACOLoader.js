@@ -3,7 +3,7 @@ import {
 	BufferGeometry,
 	FileLoader,
 	Loader
-} from 'three';
+} from '@exabyte-io/three';
 
 const _taskCache = new WeakMap();
 

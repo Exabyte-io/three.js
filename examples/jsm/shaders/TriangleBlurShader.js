@@ -1,6 +1,6 @@
 import {
 	Vector2
-} from 'three';
+} from '@exabyte-io/three';
 
 /**
  * Triangle blur shader

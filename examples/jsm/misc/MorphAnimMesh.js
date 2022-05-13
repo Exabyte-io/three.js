@@ -2,7 +2,7 @@ import {
 	AnimationClip,
 	AnimationMixer,
 	Mesh
-} from 'three';
+} from '@exabyte-io/three';
 
 class MorphAnimMesh extends Mesh {
 

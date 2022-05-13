@@ -1,7 +1,7 @@
 import {
 	Matrix4,
 	Vector2
-} from 'three';
+} from '@exabyte-io/three';
 /**
  * References:
  * https://lettier.github.io/3d-game-shaders-for-beginners/screen-space-reflection.html

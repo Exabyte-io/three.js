@@ -17,7 +17,7 @@
 
 import {
 	ExtrudeGeometry
-} from 'three';
+} from '@exabyte-io/three';
 
 class TextGeometry extends ExtrudeGeometry {
 

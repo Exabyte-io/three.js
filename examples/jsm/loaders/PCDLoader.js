@@ -6,7 +6,7 @@ import {
 	LoaderUtils,
 	Points,
 	PointsMaterial
-} from 'three';
+} from '@exabyte-io/three';
 
 class PCDLoader extends Loader {
 

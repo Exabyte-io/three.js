@@ -1,6 +1,6 @@
 import {
 	WebGLRenderTarget
-} from 'three';
+} from '@exabyte-io/three';
 import { SSAARenderPass } from './SSAARenderPass.js';
 
 /**

@@ -5,7 +5,7 @@ import {
 	NumberKeyframeTrack,
 	Vector3,
 	VectorKeyframeTrack
-} from 'three';
+} from '@exabyte-io/three';
 
 class AnimationClipCreator {
 

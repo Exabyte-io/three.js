@@ -1,7 +1,7 @@
 import {
 	Matrix4,
 	Vector2
-} from 'three';
+} from '@exabyte-io/three';
 
 /**
  * References:

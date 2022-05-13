@@ -3,7 +3,7 @@ import {
 	Mesh,
 	BufferAttribute,
 	BufferGeometry
-} from 'three';
+} from '@exabyte-io/three';
 
 import { mergeGroups } from './BufferGeometryUtils.js';
 

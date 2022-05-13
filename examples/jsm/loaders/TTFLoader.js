@@ -1,7 +1,7 @@
 import {
 	FileLoader,
 	Loader
-} from 'three';
+} from '@exabyte-io/three';
 import opentype from '../libs/opentype.module.js';
 
 /**

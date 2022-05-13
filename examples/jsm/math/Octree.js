@@ -5,7 +5,7 @@ import {
 	Sphere,
 	Triangle,
 	Vector3
-} from 'three';
+} from '@exabyte-io/three';
 import { Capsule } from '../math/Capsule.js';
 
 

@@ -2,7 +2,7 @@ import {
 	Mesh,
 	ShaderMaterial,
 	SphereGeometry
-} from 'three';
+} from '@exabyte-io/three';
 
 class LightProbeHelper extends Mesh {
 
