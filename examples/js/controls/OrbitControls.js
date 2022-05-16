@@ -1,4 +1,10 @@
-( function () {
+module.exports = {
+    getOrbitControls: function (THREE) {
+
+    if (THREE.OrbitControls) {
+        const { MapControls, OrbitControls } = THREE;
+        return { MapControls, OrbitControls };
+    }
 
 	// Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
 	//
@@ -1073,7 +1079,10 @@
 
 	}
 
-	THREE.MapControls = MapControls;
-	THREE.OrbitControls = OrbitControls;
+    THREE.OrbitControls = OrbitControls;
+    THREE.MapControls = MapControls;
 
-} )();
+    return { MapControls, OrbitControls };
+    }
+
+};
