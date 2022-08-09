@@ -19,6 +19,15 @@ function Editor( providedDefaultCamera ) {
 	var signal = new Signal();
 
 	this.signals = {
+		// multipleSelection
+
+		toggleMultipleSelection: new Signal(),
+		enableMultipleSelection: new Signal(),
+		disableMultipleSelection: new Signal(),
+		showMultipleSelectionControls: new Signal(),
+		hideMultipleSelectionControls: new Signal(),
+		cancelMultipleSelection: new Signal(),
+		submitMultipleSelection: new Signal(),
 
 		// script
 
@@ -37,6 +46,7 @@ function Editor( providedDefaultCamera ) {
 		// notifications
 
 		editorCleared: new Signal(),
+		editorClosed: new Signal(),
 
 		savingStarted: new Signal(),
 		savingFinished: new Signal(),

@@ -16,6 +16,13 @@ import { SetRotationCommand } from './commands/SetRotationCommand.js';
 import { SetScaleCommand } from './commands/SetScaleCommand.js';
 
 import { RoomEnvironment } from '../../examples/jsm/environments/RoomEnvironment.js';
+import { MultipleSelection } from './libs/multiple-selection/multiple-selection.js';
+import {
+	AddMultipleSelectionGroupCommand,
+	RemoveMultipleSelectionGroupCommand,
+	SubmitMultipleSelectionCommand,
+	CancelMultipleSelectionCommand
+} from './commands/Commands.js';
 
 function Viewport( editor ) {
 
@@ -55,7 +62,7 @@ function Viewport( editor ) {
 
 	grid.rotateX( Math.PI / 2 );
 
-    // additioanl axis lines for usability considerations
+	// additioanl axis lines for usability considerations
 	const length = 30;
 	const lineMaterial = new THREE.LineDashedMaterial( {
 		dashSize: 1,
@@ -90,6 +97,33 @@ function Viewport( editor ) {
 	selectionBox.visible = false;
 	sceneHelpers.add( selectionBox );
 
+	const multipleSelection = new MultipleSelection( editor );
+	editor.multipleSelection = multipleSelection;
+
+	multipleSelection.addEventListener( 'pointerdown', () => {
+
+		editor.execute( new RemoveMultipleSelectionGroupCommand( editor ) );
+
+		signals.hideMultipleSelectionControls.dispatch();
+
+	} );
+
+	multipleSelection.addEventListener( 'pointerup', ( selectedMeshes ) => {
+
+		if ( ! selectedMeshes.length ) {
+
+			editor.execute( new RemoveMultipleSelectionGroupCommand( editor ) );
+
+			return;
+
+		}
+
+		editor.execute( new AddMultipleSelectionGroupCommand( editor, selectedMeshes ) );
+
+		signals.showMultipleSelectionControls.dispatch();
+
+	} );
+
 	let objectPositionOnDown = null;
 	let objectRotationOnDown = null;
 	let objectScaleOnDown = null;
@@ -111,7 +145,7 @@ function Viewport( editor ) {
 
 			}
 
-			signals.refreshSidebarObject3D.dispatch( object );
+			signals.sceneGraphChanged.dispatch( );
 
 		}
 
@@ -348,9 +382,46 @@ function Viewport( editor ) {
 
 	} );
 
+	signals.toggleMultipleSelection.add( function () {
+
+
+		multipleSelection.toggle();
+		controls.enabled = ! multipleSelection.enabled;
+
+	} );
+
+	signals.enableMultipleSelection.add( function () {
+
+		multipleSelection.enable();
+		controls.enabled = false;
+
+	} );
+
+	signals.disableMultipleSelection.add( function () {
+
+		multipleSelection.disable();
+		controls.enabled = true;
+
+	} );
+
+	signals.submitMultipleSelection.add( function () {
+
+		editor.execute( new SubmitMultipleSelectionCommand( editor, multipleSelection ) );
+		render();
+
+	} );
+
+	signals.cancelMultipleSelection.add( function () {
+
+		editor.execute( new CancelMultipleSelectionCommand( editor, multipleSelection ) );
+		render();
+
+	} );
+
 	signals.transformModeChanged.add( function ( mode ) {
 
 		transformControls.setMode( mode );
+		render();
 
 	} );
 
@@ -398,6 +469,7 @@ function Viewport( editor ) {
 
 		renderer.setAnimationLoop( animate );
 		renderer.setClearColor( 0xaaaaaa );
+		multipleSelection.renderer = renderer;
 
 		if ( window.matchMedia ) {
 
@@ -506,6 +578,9 @@ function Viewport( editor ) {
 	} );
 
 	signals.objectRemoved.add( function ( object ) {
+
+		// we explicitly prevent manipulations of the camera when multiple selection is enabled
+		if ( multipleSelection.enabled ) return;
 
 		controls.enabled = true; // see #14180
 		if ( object === transformControls.object ) {

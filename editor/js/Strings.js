@@ -23,6 +23,7 @@ function Strings( config ) {
 			'menubar/file/export/stl_binary': 'Export STL (Binary)',
 			'menubar/file/export/usdz': 'Export USDZ',
 			'menubar/file/publish': 'Publish',
+			'menubar/file/exit': 'Exit',
 
 			'menubar/edit': 'Edit',
 			'menubar/edit/undo': 'Undo (Ctrl+Z)',
@@ -331,6 +332,9 @@ function Strings( config ) {
 			'toolbar/rotate': 'Rotate',
 			'toolbar/scale': 'Scale',
 			'toolbar/local': 'Local',
+			'toolbar/toggle-multiple-selection': 'Toggle Multiple Selection',
+			'toolbar/submit-multiple-selection': 'Submit Multiple Selection',
+			'toolbar/cancel-multiple-selection': 'Cancel Multiple Selection',
 
 			'viewport/info/objects': 'Objects',
 			'viewport/info/vertices': 'Vertices',
@@ -358,6 +362,7 @@ function Strings( config ) {
 			'menubar/file/export/stl_binary': 'Exporter STL (Binaire)',
 			'menubar/file/export/usdz': 'Exporter USDZ',
 			'menubar/file/publish': 'Publier',
+			'menubar/file/exit': 'Quitter',
 
 			'menubar/edit': 'Edition',
 			'menubar/edit/undo': 'Annuler (Ctrl+Z)',
@@ -666,6 +671,9 @@ function Strings( config ) {
 			'toolbar/rotate': 'Rotation',
 			'toolbar/scale': 'Échelle',
 			'toolbar/local': 'Local',
+			'toolbar/toggle-multiple-selection': 'Basculer la sélection multiple',
+			'toolbar/submit-multiple-selection': 'Soumettre une sélection multiple',
+			'toolbar/cancel-multiple-selection': 'Annuler la sélection multiple',
 
 			'viewport/info/objects': 'Objets',
 			'viewport/info/vertices': 'Sommets',
@@ -693,6 +701,7 @@ function Strings( config ) {
 			'menubar/file/export/stl_binary': '导出STL(二进制)',
 			'menubar/file/export/usdz': '导出USDZ',
 			'menubar/file/publish': '发布',
+			'menubar/file/exit': '退出',
 
 			'menubar/edit': '编辑',
 			'menubar/edit/undo': '撤销 (Ctrl+Z)',
@@ -1001,6 +1010,9 @@ function Strings( config ) {
 			'toolbar/rotate': '旋转',
 			'toolbar/scale': '缩放',
 			'toolbar/local': '本地',
+			'toolbar/toggle-multiple-selection': '切换多项选择',
+			'toolbar/submit-multiple-selection': '提交多项选择',
+			'toolbar/cancel-multiple-selection': '取消多项选择',
 
 			'viewport/info/objects': '物体',
 			'viewport/info/vertices': '顶点',
