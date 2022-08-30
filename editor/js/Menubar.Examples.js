@@ -22,10 +22,6 @@ function MenubarExamples( editor ) {
 
 	const items = [
 		{ title: 'menubar/examples/Rotation', file: 'rotation.app.json' },
-		{ title: 'menubar/examples/Camera', file: 'camera.app.json' },
-		{ title: 'menubar/examples/Particles', file: 'particles.app.json' },
-		{ title: 'menubar/examples/Pong', file: 'pong.app.json' },
-		{ title: 'menubar/examples/Shaders', file: 'shaders.app.json' }
 	];
 
 	const loader = new THREE.FileLoader();
@@ -44,10 +40,15 @@ function MenubarExamples( editor ) {
 				if ( confirm( 'Any unsaved data will be lost. Are you sure?' ) ) {
 
 					loader.load( 'examples/' + item.file, function ( text ) {
+
 						editor.clear();
 						editor.fromJSON( JSON.parse( text ) );
 
-					}, () => {}, (error) => { console.log(error) } );
+					}, () => {}, ( error ) => {
+
+						console.log( error );
+
+					} );
 
 				}
 

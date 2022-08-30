@@ -1,15 +1,9 @@
 import { UIElement, UIPanel, UIText } from './libs/ui.js';
-import CodeMirror from 'codemirror';
-import { GlueTernAndCodeMirror } from './libs/codemirror/addon/tern';
-import tern from "ternjs";
 import * as esprima from 'esprima';
-// import * as jsonlint from "jsonlint";
-
 import { SetScriptValueCommand } from './commands/SetScriptValueCommand.js';
 import { SetMaterialValueCommand } from './commands/SetMaterialValueCommand.js';
-
-// TODO : resolve global tern reference in CodeMirror.TernServer
-GlueTernAndCodeMirror(CodeMirror, tern);
+import { Codemirror } from './Codemirror.js';
+import { EditorView } from '@codemirror/view';
 
 function Script( editor ) {
 
@@ -67,87 +61,71 @@ function Script( editor ) {
 	let currentMode;
 	let currentScript;
 	let currentObject;
+	const codemirror = Codemirror( { container: container.dom, extensions: [
+		EditorView.updateListener.of( function ( e ) {
 
-	const codemirror = CodeMirror( container.dom, {
-		value: '',
-		lineNumbers: true,
-		matchBrackets: true,
-		indentWithTabs: true,
-		tabSize: 4,
-		indentUnit: 4,
-		hintOptions: {
-			completeSingle: false
-		}
-	} );
-	codemirror.setOption( 'theme', 'monokai' );
-	codemirror.on( 'change', function () {
+			clearTimeout( delay );
+			delay = setTimeout( function () {
 
-		if ( codemirror.state.focused === false ) return;
+				const value = e.state.doc.toString();
 
-		clearTimeout( delay );
-		delay = setTimeout( function () {
+				if ( typeof ( currentScript ) === 'object' ) {
 
-			const value = codemirror.getValue();
+					if ( value !== currentScript.source ) {
 
-			if ( ! validate( value ) ) return;
+						editor.execute( new SetScriptValueCommand( editor, currentObject, currentScript, 'source', value ) );
 
-			if ( typeof ( currentScript ) === 'object' ) {
+					}
 
-				if ( value !== currentScript.source ) {
-
-					editor.execute( new SetScriptValueCommand( editor, currentObject, currentScript, 'source', value ) );
+					return;
 
 				}
 
-				return;
+				if ( currentScript !== 'programInfo' ) return;
 
-			}
+				const json = JSON.parse( value );
 
-			if ( currentScript !== 'programInfo' ) return;
+				if ( JSON.stringify( currentObject.material.defines ) !== JSON.stringify( json.defines ) ) {
 
-			const json = JSON.parse( value );
+					const cmd = new SetMaterialValueCommand( editor, currentObject, 'defines', json.defines );
+					cmd.updatable = false;
+					editor.execute( cmd );
 
-			if ( JSON.stringify( currentObject.material.defines ) !== JSON.stringify( json.defines ) ) {
+				}
 
-				const cmd = new SetMaterialValueCommand( editor, currentObject, 'defines', json.defines );
-				cmd.updatable = false;
-				editor.execute( cmd );
+				if ( JSON.stringify( currentObject.material.uniforms ) !== JSON.stringify( json.uniforms ) ) {
 
-			}
+					const cmd = new SetMaterialValueCommand( editor, currentObject, 'uniforms', json.uniforms );
+					cmd.updatable = false;
+					editor.execute( cmd );
 
-			if ( JSON.stringify( currentObject.material.uniforms ) !== JSON.stringify( json.uniforms ) ) {
+				}
 
-				const cmd = new SetMaterialValueCommand( editor, currentObject, 'uniforms', json.uniforms );
-				cmd.updatable = false;
-				editor.execute( cmd );
+				if ( JSON.stringify( currentObject.material.attributes ) !== JSON.stringify( json.attributes ) ) {
 
-			}
+					const cmd = new SetMaterialValueCommand( editor, currentObject, 'attributes', json.attributes );
+					cmd.updatable = false;
+					editor.execute( cmd );
 
-			if ( JSON.stringify( currentObject.material.attributes ) !== JSON.stringify( json.attributes ) ) {
+				}
 
-				const cmd = new SetMaterialValueCommand( editor, currentObject, 'attributes', json.attributes );
-				cmd.updatable = false;
-				editor.execute( cmd );
+			}, 300 );
 
-			}
+		} )
+	] } );
 
-		}, 300 );
-
-	} );
-
-	// prevent backspace from deleting objects
-	const wrapper = codemirror.getWrapperElement();
-	wrapper.addEventListener( 'keydown', function ( event ) {
+	//this will prevent any updates on the main page on each keydown
+	codemirror.contentDOM.addEventListener( 'keydown', function ( event ) {
 
 		event.stopPropagation();
 
 	} );
 
 	// validate
-
 	const errorLines = [];
 	const widgets = [];
 
+	//TODO: need to think how to use codemirror validation extension if this could be
 	const validate = function ( string ) {
 
 		let valid;
@@ -295,73 +273,6 @@ function Script( editor ) {
 
 	};
 
-	// tern js autocomplete
-
-	const server = new CodeMirror.TernServer( {
-		caseInsensitive: true,
-		plugins: { threejs: null }
-	} );
-
-	codemirror.setOption( 'extraKeys', {
-		'Ctrl-Space': function ( cm ) {
-
-			server.complete( cm );
-
-		},
-		'Ctrl-I': function ( cm ) {
-
-			server.showType( cm );
-
-		},
-		'Ctrl-O': function ( cm ) {
-
-			server.showDocs( cm );
-
-		},
-		'Alt-.': function ( cm ) {
-
-			server.jumpToDef( cm );
-
-		},
-		'Alt-,': function ( cm ) {
-
-			server.jumpBack( cm );
-
-		},
-		'Ctrl-Q': function ( cm ) {
-
-			server.rename( cm );
-
-		},
-		'Ctrl-.': function ( cm ) {
-
-			server.selectName( cm );
-
-		}
-	} );
-
-	codemirror.on( 'cursorActivity', function ( cm ) {
-
-		if ( currentMode !== 'javascript' ) return;
-		server.updateArgHints( cm );
-
-	} );
-
-	codemirror.on( 'keypress', function ( cm, kb ) {
-
-		if ( currentMode !== 'javascript' ) return;
-		const typed = String.fromCharCode( kb.which || kb.keyCode );
-		if ( /[\w\.]/.exec( typed ) ) {
-
-			server.complete( cm );
-
-		}
-
-	} );
-
-
-	//
-
 	signals.editorCleared.add( function () {
 
 		container.setDisplay( 'none' );
@@ -379,6 +290,7 @@ function Script( editor ) {
 			title.setValue( object.name + ' / ' + name );
 
 		} else {
+
 			switch ( script ) {
 
 				case 'vertexShader':
@@ -419,11 +331,11 @@ function Script( editor ) {
 		currentObject = object;
 
 		container.setDisplay( '' );
-		console.log( source )
-		codemirror.setValue( source );
-		codemirror.clearHistory();
+		const { state } = codemirror;
+		const update = state.update( { changes: { from: 0, to: state.doc.length, insert: source } } );
+		codemirror.update( [ update ] );
+
 		if ( mode === 'json' ) mode = { name: 'javascript', json: true };
-		codemirror.setOption( 'mode', mode );
 
 	} );
 

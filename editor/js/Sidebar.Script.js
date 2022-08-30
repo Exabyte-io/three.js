@@ -25,7 +25,7 @@ function SidebarScript( editor ) {
 	const newScript = new UIButton( strings.getKey( 'sidebar/script/new' ) );
 	newScript.onClick( function () {
 
-		const script = { name: '', source: 'function update( event ) {}' };
+		const script = { name: '', source: '/* eslint-disable-next-line */\nfunction update( event ) {}' };
 		editor.execute( new AddScriptCommand( editor, editor.selected, script ) );
 
 	} );
