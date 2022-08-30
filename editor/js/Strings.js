@@ -69,6 +69,7 @@ function Strings( config ) {
 			'menubar/examples': 'Examples',
 			'menubar/examples/Arkanoid': 'Arkanoid',
 			'menubar/examples/Camera': 'Camera',
+			'menubar/examples/Rotation': 'Rotation',
 			'menubar/examples/Particles': 'Particles',
 			'menubar/examples/Pong': 'Pong',
 			'menubar/examples/Shaders': 'Shaders',

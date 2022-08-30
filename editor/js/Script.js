@@ -1,12 +1,15 @@
 import { UIElement, UIPanel, UIText } from './libs/ui.js';
-import CodeMirror from "codemirror";
-// TODO : resolve global tern reference in CodeMirror.TernServer
+import CodeMirror from 'codemirror';
+import { GlueTernAndCodeMirror } from './libs/codemirror/addon/tern';
 import tern from "ternjs";
-import "codemirror/addon/tern/tern";
-import "codemirror/addon/tern/tern.css";
+import * as esprima from 'esprima';
+// import * as jsonlint from "jsonlint";
 
 import { SetScriptValueCommand } from './commands/SetScriptValueCommand.js';
 import { SetMaterialValueCommand } from './commands/SetMaterialValueCommand.js';
+
+// TODO : resolve global tern reference in CodeMirror.TernServer
+GlueTernAndCodeMirror(CodeMirror, tern);
 
 function Script( editor ) {
 
@@ -368,7 +371,6 @@ function Script( editor ) {
 	signals.editScript.add( function ( object, script ) {
 
 		let mode, name, source;
-
 		if ( typeof ( script ) === 'object' ) {
 
 			mode = 'javascript';
@@ -377,7 +379,6 @@ function Script( editor ) {
 			title.setValue( object.name + ' / ' + name );
 
 		} else {
-
 			switch ( script ) {
 
 				case 'vertexShader':
@@ -418,6 +419,7 @@ function Script( editor ) {
 		currentObject = object;
 
 		container.setDisplay( '' );
+		console.log( source )
 		codemirror.setValue( source );
 		codemirror.clearHistory();
 		if ( mode === 'json' ) mode = { name: 'javascript', json: true };

@@ -36,11 +36,11 @@ function MenubarFile( editor ) {
 		}
 
 	} );
-	// options.add( option );
+	options.add( option );
 
 	//
 
-	// options.add( new UIHorizontalRule() );
+	options.add( new UIHorizontalRule() );
 
 	// Import
 
@@ -67,11 +67,11 @@ function MenubarFile( editor ) {
 		fileInput.click();
 
 	} );
-	// options.add( option );
+	options.add( option );
 
 	//
 
-	// options.add( new UIHorizontalRule() );
+	options.add( new UIHorizontalRule() );
 
 	// Export Geometry
 
