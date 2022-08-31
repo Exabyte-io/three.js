@@ -44,10 +44,6 @@ function MenubarExamples( editor ) {
 						editor.clear();
 						editor.fromJSON( JSON.parse( text ) );
 
-					}, () => {}, ( error ) => {
-
-						console.log( error );
-
 					} );
 
 				}
