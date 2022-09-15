@@ -20,9 +20,7 @@ function MenubarExamples( editor ) {
 
 	// Examples
 
-	const items = [
-		{ title: 'menubar/examples/Rotation', file: 'rotation.app.json' },
-	];
+	const items = editor.examples || [];
 
 	const loader = new THREE.FileLoader();
 
@@ -34,12 +32,11 @@ function MenubarExamples( editor ) {
 
 			const option = new UIRow();
 			option.setClass( 'option' );
-			option.setTextContent( strings.getKey( item.title ) );
+			option.setTextContent( item.title );
 			option.onClick( function () {
 
 				if ( confirm( 'Any unsaved data will be lost. Are you sure?' ) ) {
-
-					loader.load( 'examples/' + item.file, function ( text ) {
+					loader.load( item.file, function ( text ) {
 
 						editor.clear();
 						editor.fromJSON( JSON.parse( text ) );
