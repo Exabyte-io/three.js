@@ -30,6 +30,7 @@
     "editor/js",
     "editor/css",
     "editor/images",
+    "editor/examples",
     "examples/js",
     "examples/jsm",
     "examples/fonts",
