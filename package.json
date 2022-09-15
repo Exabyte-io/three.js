@@ -12,6 +12,7 @@
     },
     "./editor/css/*": "./editor/css/*",
     "./editor/js/*": "./editor/js/*",
+    "./editor/examples/*": "./editor/examples/*",
     "./examples/fonts/*": "./examples/fonts/*",
     "./examples/jsm/*": "./examples/jsm/*",
     "./src/*": "./src/*"
