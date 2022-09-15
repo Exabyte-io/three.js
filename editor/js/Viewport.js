@@ -834,6 +834,7 @@ function Viewport( editor ) {
 		// don't render under the grid.
 
 		scene.add( grid );
+		editor.sceneHelpers.add( grid );
 		renderer.setViewport( 0, 0, container.dom.offsetWidth, container.dom.offsetHeight );
 		renderer.render( scene, editor.viewportCamera );
 		scene.remove( grid );

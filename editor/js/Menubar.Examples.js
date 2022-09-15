@@ -1,5 +1,3 @@
-import * as THREE from 'three';
-
 import { UIPanel, UIRow } from './libs/ui.js';
 import rotation from '../examples/rotation.app.json';
 
