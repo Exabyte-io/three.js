@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
 import { UIPanel, UIRow } from './libs/ui.js';
+import rotation from '../examples/rotation.app.json';
 
 function MenubarExamples( editor ) {
 
@@ -21,10 +22,8 @@ function MenubarExamples( editor ) {
 	// Examples
 
 	const items = [
-		{ title: 'menubar/examples/Rotation', file: 'rotation.app.json' },
+		{ title: 'menubar/examples/Rotation', file: rotation },
 	];
-
-	const loader = new THREE.FileLoader();
 
 	for ( let i = 0; i < items.length; i ++ ) {
 
@@ -39,12 +38,8 @@ function MenubarExamples( editor ) {
 
 				if ( confirm( 'Any unsaved data will be lost. Are you sure?' ) ) {
 
-					loader.load( 'examples/' + item.file, function ( text ) {
-
-						editor.clear();
-						editor.fromJSON( JSON.parse( text ) );
-
-					} );
+					editor.clear();
+					editor.fromJSON( item.file );
 
 				}
 
