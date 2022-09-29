@@ -8,7 +8,7 @@ import { indentWithTab } from '@codemirror/commands';
 import Linter from 'eslint4b-prebuilt';
 
 const doc = '';
-export const Codemirror = ( { container, extensions = [] } ) => {
+export const Codemirror = ( { container, extensions = [], ...other } ) => {
 
 	return new EditorView( {
 		state: EditorState.create( {
@@ -24,6 +24,7 @@ export const Codemirror = ( { container, extensions = [] } ) => {
 			]
 		} ),
 		parent: container,
+		...other
 	} );
 
 };
