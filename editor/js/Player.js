@@ -30,8 +30,7 @@ function Player( editor ) {
 	signals.startPlayer.add( function () {
 
 		container.setDisplay( '' );
-
-		player.load( editor.toJSON() );
+		player.load( editor );
 		player.setSize( container.dom.clientWidth, container.dom.clientHeight );
 		player.play();
 

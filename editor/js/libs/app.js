@@ -23,7 +23,9 @@ var APP = {
 		this.width = 500;
 		this.height = 500;
 
-		this.load = function ( json ) {
+		this.load = function ( editor ) {
+
+			const json = editor.toJSON();
 
 			var project = json.project;
 
@@ -34,7 +36,9 @@ var APP = {
 			if ( project.toneMappingExposure !== undefined ) renderer.toneMappingExposure = project.toneMappingExposure;
 			if ( project.physicallyCorrectLights !== undefined ) renderer.physicallyCorrectLights = project.physicallyCorrectLights;
 
-			this.setScene( loader.parse( json.scene ) );
+			const scene = loader.parse( json.scene );
+			scene.add( editor.sceneHelpers );
+			this.setScene( scene );
 			this.setCamera( loader.parse( json.camera ) );
 
 			events = {
