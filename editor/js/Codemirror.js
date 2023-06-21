@@ -5,11 +5,10 @@ import { EditorState } from '@codemirror/state';
 import { oneDark } from '@codemirror/theme-one-dark';
 import { lintGutter, linter } from '@codemirror/lint';
 import { indentWithTab } from '@codemirror/commands';
-import Linter from 'eslint4b-prebuilt';
+import * as eslint from "eslint-linter-browserify";
 
 const doc = '';
 export const Codemirror = ( { container, extensions = [], ...other } ) => {
-
 	return new EditorView( {
 		state: EditorState.create( {
 			doc,
@@ -18,7 +17,7 @@ export const Codemirror = ( { container, extensions = [], ...other } ) => {
 				javascript(),
 				oneDark,
 				keymap.of( [ indentWithTab ] ),
-				linter( esLint( new Linter() ) ),
+				linter( esLint( new eslint.Linter() ) ),
 				lintGutter(),
 				...extensions
 			]
@@ -26,5 +25,4 @@ export const Codemirror = ( { container, extensions = [], ...other } ) => {
 		parent: container,
 		...other
 	} );
-
 };
