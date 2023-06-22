@@ -1,11 +1,11 @@
 import { basicSetup } from 'codemirror';
 import { EditorView, keymap } from '@codemirror/view';
-import { javascript, esLint } from '@codemirror/lang-javascript';
+import { javascript } from '@codemirror/lang-javascript';
 import { EditorState } from '@codemirror/state';
 import { oneDark } from '@codemirror/theme-one-dark';
-import { lintGutter, linter } from '@codemirror/lint';
+//NOTE: aren't importing `Linter` here b/c eslint-prebuilt package is 1.5MB in webapp bundle
+import { lintGutter } from '@codemirror/lint';
 import { indentWithTab } from '@codemirror/commands';
-import Linter from 'eslint4b-prebuilt';
 
 const doc = '';
 export const Codemirror = ( { container, extensions = [], ...other } ) => {
@@ -18,7 +18,6 @@ export const Codemirror = ( { container, extensions = [], ...other } ) => {
 				javascript(),
 				oneDark,
 				keymap.of( [ indentWithTab ] ),
-				linter( esLint( new Linter() ) ),
 				lintGutter(),
 				...extensions
 			]
