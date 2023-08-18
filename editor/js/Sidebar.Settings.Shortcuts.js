@@ -95,13 +95,13 @@ function SidebarSettingsShortcuts( editor ) {
 
 	}
 
-	document.addEventListener( 'keydown', function ( event ) {
+	document.getElementById( 'threejs-editor' ).addEventListener( 'keydown', function ( event ) {
 
 		switch ( event.key.toLowerCase() ) {
 
 			case 'backspace':
 
-				// event.preventDefault(); // prevent browser back -- this is no longer an issue since 2016
+				event.preventDefault(); // prevent browser back -- this is no longer an issue since 2016
 
 				// fall-through
 
