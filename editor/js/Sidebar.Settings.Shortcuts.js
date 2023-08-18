@@ -101,7 +101,7 @@ function SidebarSettingsShortcuts( editor ) {
 
 			case 'backspace':
 
-				event.preventDefault(); // prevent browser back
+				// event.preventDefault(); // prevent browser back -- this is no longer an issue since 2016
 
 				// fall-through
 
